@@ -21,6 +21,7 @@ spec:
       containers:
       - name: app-alpha
         image: busybox
+        command: ["sleep", "3600"]
         securityContext:
           allowPrivilegeEscalation: false
           runAsNonRoot: true
@@ -29,7 +30,6 @@ spec:
             - ALL
           seccompProfile:
             type: RuntimeDefault
-        command: ["sleep", "3600"]
         volumeMounts:
         - name: host-volume
           mountPath: /host
